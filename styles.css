@@ -1,13 +1,12 @@
 body, p {
 	font-family:"Tahoma", Georgia, Serif;
-	color: #fff;
 }
 
-.fontface h1, h2, h3, h4, h5, h6 {
+.fontface h1, .fontface h2, .fontface h3, .fontface h4, .fontface h5, .fontface h6 {
 	font-family: 'league_gothicregular', Georgia, sans-serif;
 }
 
-.no-fontface h1, h2, h3, h4, h5, h6 {
+.no-fontface h1, .no-fontface h2, .no-fontface h3, .no-fontface h4, .no-fontface h5, .no-fontface h6 {
 	font-family: Arial, sans-serif;
 }
 
@@ -21,4 +20,27 @@ body, p {
     font-weight: normal;
     font-style: normal;
 
+}
+
+.page-header {
+	background-color: #E5E5E5;
+	color: #333;
+}
+
+.page-header h4{
+	padding-left: 10px;
+	background-color: #E5E5E5;
+	color: #333;
+}
+
+.custom-form {
+	background-color: #FFF;
+}
+
+.side-bar {
+	background-color: #404040;
+}
+
+footer ul {
+	display: inline;
 }
