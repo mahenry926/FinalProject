@@ -332,11 +332,6 @@ td {
 /* #Sections
 ================================================== */
 
-.main-section {
-	background-color: blue;
-
-}
-
 .page-header {
 	background-color: #E5E5E5;
 	color: #333;
@@ -357,6 +352,10 @@ td {
 }
 
 .footer {
-	text-align: center;
+
+}
+
+.edit-form-bar {
+	background-color: #eee;
 }
 

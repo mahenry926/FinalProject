@@ -14,7 +14,6 @@
 		<link type="text/css" rel="stylesheet" href="base.css" >
 		<link type="text/css" rel="stylesheet" href="layout.css" >
 		<link type="text/css" rel="stylesheet" href="skeleton.css" >
-		<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" >
 
 		<!-- JAVA SCRIPT -->
 		<script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.6.2.js"></script>
@@ -27,8 +26,8 @@
 
 			<form>
 				<fieldset>
-					<label for="name">Question label</label>
-					<input type="text" name="name" id="name" class="text" />
+					<label for="questionLabel">Question label</label>
+					<input type="text" name="questionLabel" id="questionLabel" class="text" />
 					<label for="instructions">Instructions</label>
 					<input type="text" name="instructions" id="instructions" value="" class="text" />
 				</fieldset>
@@ -47,16 +46,18 @@
 
 				<section class="left-side twelve columns alpha">
 					<section class="custom-form">
-						<section class="form-section">
+						<section id="form-section" class="form-section">
 							<article class="question">
 								<p>Name</p>
 							</article>
 							<article class="question">
 								<p>Address</p>
 							</article>
-							<button class="add-item">Add item</button>
 
 						</section>
+					</section>
+					<section class="edit-form">
+						<button class="add-item">Add item</button>
 					</section>
 				</section>
 				<section class="side-bar four columns omega">
@@ -89,11 +90,28 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
   	<script>
   		$(function() {
+  			var questionLabel = $( "#questionLabel" ),
+				instructions = $( "#instructions" ),
+				allFields = $( [] ).add( questionLabel ).add( instructions );
+
 			$( "#dialog-form" ).dialog({
 				autoOpen: false,
 				height: 300,
 				width: 350,
-				modal: true,
+				buttons: { 
+					"Add question": function () {
+						$( "#form-section" ).append( "<article class=\"question\">" +
+							"<p>" + questionLabel.val() + "</p>" +
+							"</article>" );
+							$( this ).dialog( "close" );
+					}, 
+					Cancel: function() {
+						$( this ).dialog( "close");
+					},
+				},
+				close: function() {
+					allFields.val( "").removeClass( "ui-state-error" );
+				}
 			});
 
 			$( ".add-item" )
