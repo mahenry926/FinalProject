@@ -1,16 +1,15 @@
 body, p {
 	font-family:"Tahoma", Georgia, Serif;
-	color: #ffffff;
+	color: #fff;
 }
 
 .fontface h1, h2, h3, h4, h5, h6 {
-	font-family: 'league_gothicregular', Arial, sans-serif;
+	font-family: 'league_gothicregular', Georgia, sans-serif;
 }
 
 .no-fontface h1, h2, h3, h4, h5, h6 {
 	font-family: Arial, sans-serif;
 }
-
 
 @font-face {
     font-family: 'league_gothicregular';
