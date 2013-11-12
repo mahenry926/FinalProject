@@ -13,6 +13,7 @@
 		<!-- STYLESHEETS -->
 		<link type="text/css" rel="stylesheet" href="base.css" >
 		<link type="text/css" rel="stylesheet" href="layout.css" >
+		<link type="text/css" rel="stylesheet" href="modules.css" >
 		<link type="text/css" rel="stylesheet" href="skeleton.css" >
 
 		<!-- JAVA SCRIPT -->
@@ -37,7 +38,7 @@
 		<div class="container">
 			<section class="main-section sixteen columns">
 				<header class="site-header sixteen columns alpha">
-					<h1>AW Camps and Class Manager</h1>
+					<h1>Form Builder</h1>
 				</header>
 
 				<header class="page-header sixteen columns alpha">
@@ -46,17 +47,13 @@
 
 				<section class="left-side twelve columns alpha">
 					<section class="custom-form">
-						<section id="form-section" class="form-section">
-							<article class="question">
-								<p>Name</p>
-							</article>
-							<article class="question">
-								<p>Address</p>
-							</article>
-
-						</section>
+						<h6>Participant form</h6>
+						<ul id="participant-form" class="form-questions">
+							<li class="question"><p>Name</p></li>
+							<li class="question"><p>Address</p></li>
+						</ul>
 					</section>
-					<section class="edit-form">
+					<section class="edit-form-bar">
 						<button class="add-item">Add item</button>
 					</section>
 				</section>
@@ -70,10 +67,10 @@
 					<h4>Frequently asked questions</h4>
 						<ul>
 							<li><a href="#" class="add-item">How many questions is too many?</a></li>
-							<li><a href="#" class="add-item">How many questions is too many?</a></li>
-							<li><a href="#" class="add-item">How many questions is too many?</a></li>
-							<li><a href="#" class="add-item">How many questions is too many?</a></li>
-							<li><a href="#" class="add-item">How many questions is too many?</a></li>
+							<li><a href="#" class="add-item">Is this too many?</a></li>
+							<li><a href="#" class="add-item">How about this?</a></li>
+							<li><a href="#" class="add-item">This much?</a></li>
+							<li><a href="#" class="add-item">Ok, this much?</a></li>
 						</ul>
 				</section>
 			</section>
@@ -88,38 +85,14 @@
 		<!-- JAVA SCRIPT -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-  	<script>
-  		$(function() {
-  			var questionLabel = $( "#questionLabel" ),
-				instructions = $( "#instructions" ),
-				allFields = $( [] ).add( questionLabel ).add( instructions );
-
-			$( "#dialog-form" ).dialog({
-				autoOpen: false,
-				height: 300,
-				width: 350,
-				buttons: { 
-					"Add question": function () {
-						$( "#form-section" ).append( "<article class=\"question\">" +
-							"<p>" + questionLabel.val() + "</p>" +
-							"</article>" );
-							$( this ).dialog( "close" );
-					}, 
-					Cancel: function() {
-						$( this ).dialog( "close");
-					},
-				},
-				close: function() {
-					allFields.val( "").removeClass( "ui-state-error" );
-				}
+	  	<script src="addQuestion.js"></script>
+		<script>
+			$(function() {
+				$( "#participant-form" ).sortable();
+				$( "#participant-form" ).disableSelection();
 			});
+		</script>
 
-			$( ".add-item" )
-				.button()
-				.click(function() {
-					$( "#dialog-form" ).dialog( "open" );
-				});
-	  	});
-  	</script>
+
 	</body>
 </html>
